@@ -1,0 +1,122 @@
+## This is a markdown file
+
+'''{r}
+install.packages('knitr', dependencies = TRUE)  
+library(knitr) 
+install.packages(c("slidify","ggplot2","devtools"))
+library(slidify)
+library(ggplot2)
+library(devtools)
+setwd("C:/Dev/GitHub")  
+'''
+#     Hello World 
+##    Wizardjockey
+###   Data Science Toolbox  02_06_markdown
+### Unordered List
+* First Item
+* Second Item
+* Third Item
+*  http://daringfirball.net/projects/markdown/
+*  http://www.rstudio.com/ide/docs/authoring/using_markdown
+Title
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+'''{r}
+a <- available.packages()
+head(rownames(a),3)  ## show the names of the first few packages
+
+
+'''
+
+# Bioconductor Project has lots of packages
+
+'''{r}
+
+rm(list=ls())  
+
+con <- url("http://www.jhsph.edu", "r")
+
+x <- readLines(con)  
+
+head(x)  
+
+install.packages("RMySQL")  
+library(RMySQL)  
+ucscDb <- dbConnect(MySQL(), user = "genome", host = "genome-mysql.cse.ucsc.edu")  
+result <- dbGetQuery(ucscDb, "show Databases;")  
+dbDisconnect(uscsDb)  
+result  
+
+
+qplot(displ,hwy,daata=mpg, geom=c("point", "smooth"))
+
+#lesson 01_08_statisticalInference.pdf
+
+B <- 1000
+n <- length(gmVol)
+resamples <- matrix(sample(gmVol, n*B,
+  			replace = TRUE),
+		        B, n)
+medians <- apply(resamples, 1, median)
+sd(medians)
+
+quantile(medians, c(0.025, 0.975))
+
+# lesson 01_10_practicalMachineLearning.pdf
+
+install.packages("caret")  
+install.packages("kernlab")  
+library(caret)  
+library(kernlab)  
+data(spam)  
+inTrain <- createDataPartition(y=spam$type, p = 0.75, list = FALSE)  
+training <- spam[inTrain,]  
+testing <- spam[-inTrain,]  
+M<- abs(cor(training[,-58]))  
+diag(M) <- 0  
+which(M > 0.8, arr.ind = T)  
+
+#row col
+#num415  34  32
+#direct  40  32
+#num857  32  34
+
+
+#02_09_installingRPackages.pdf
+
+# Bioconductor Project has lots of packages
+source("http://bioconductor.org/biocLite.R")  
+biocLite()  
+
+biocLite(c("GenomicFeatures", "AnnotationDbi"))    
+# http://www.bioconductor.org/install/  
+#The downloaded packages are in  C:\Users\Windo_000\AppData\Local\Temp\RtmpDCiDTc\downloaded_packages    
+# DownLoaded Packages are
+#'RSQLite' 'affyio' 'preprocessCore' 'simpleaffy' 'RColorBrewer' 'GO.db' 'KEGG.db' 'AnnotationDbi'  'RCurl'  'IRanges' 'org.Hs.eg.db' 'affy' 'affydata' 'affyPLM'  'affyQCReport' 'annaffy' 'annotate'  'Biobase'  'biomaRt'  'Biostrings'  'DynDoc'  'gcrma' 'genefilter'  'geneplotter' 'GenomicRanges' 'hgu95av2.db'  'limma' 'marray'  'multtest' 'vsn'  'xtable' 
+
+#RSQLite::SQLite   Initialize the SQLite engine for the
+                  current R session.
+#RSQLite::SQLiteConnection-class
+#install.packages("RSQLite")  
+library(RSQLite) 
+search()
+ucscDb <- dbConnect(MySQL(), user = "genome", host = "genome-mysql.cse.ucsc.edu")  
+result <- dbGetQuery(ucscDb, "show Databases;")  
+dbDisconnect(uscsDb)  
+result 
+
+'''
+
